@@ -5,15 +5,15 @@
 
 <div id="box">
 <ion-label>CPF</ion-label>
-<ion-input [(ngModel)]="user.cpf" type="number"></ion-input>
+<ion-input [(ngModel)]="Usuario.nr_cpf" type="number"></ion-input>
 
 
 <ion-label>Senha</ion-label>
-<ion-input [(ngModel)]="user.senha" type="password"></ion-input>
+<ion-input [(ngModel)]="Usuario.senha" type="password"></ion-input>
 </div>
 
 <div class="center">
-<button ion-button (click)="Logar()" color="black">Logar</button>
+<button ion-button (click)="Logar(Usuario)" color="black">Logar</button>
 </div>
 </div>
 </ion-content>

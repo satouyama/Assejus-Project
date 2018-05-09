@@ -1,4 +1,5 @@
-export interface usuario {
-    cpf : number;
+export interface User {
+    nr_cpf : number;
      senha : string;
+     nomeUsuario : string;
 }
