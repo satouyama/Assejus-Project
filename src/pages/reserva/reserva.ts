@@ -15,7 +15,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class ReservaPage {
    
-   
+   data = this.navParams.get('data');
+ 
   
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     
@@ -23,7 +24,7 @@ export class ReservaPage {
 
   ionViewDidLoad() {
     var data = this.navParams.get('data');
-    console.log(data);
+  
   }
 
 }

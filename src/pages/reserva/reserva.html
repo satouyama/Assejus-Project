@@ -7,14 +7,39 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Minhas Reservas</ion-title>
-  </ion-navbar>
+    <button ion-button menuToggle>
+       <ion-icon name="menu">
+       
+       </ion-icon>
+    </button>
+   <ion-title>Minhas Reservas</ion-title>
+ </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-  <ion-item *ngFor="let dados of data">
-     Nome : {{dados.nm_completo}}
-  </ion-item>
+  <ion-card>
+    <ion-card-header>
+      Informações para teste de login
+    </ion-card-header>
+  
+    <ion-list>
+      <button ion-item>
+        <ion-icon name="people" item-start></ion-icon>
+         {{data.nm_completo}}
+      </button>
+  
+      <button ion-item>
+        <ion-icon name="mail" item-start></ion-icon>
+          {{data.em_email}}
+      </button>
+  
+      <button ion-item>
+        <ion-icon name="create" item-start></ion-icon>
+        Data de Registro : {{data.dt_registro}}
+      </button>
+  
+    </ion-list>
+  </ion-card>
 </ion-content>

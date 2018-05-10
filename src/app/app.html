@@ -1,1 +1,18 @@
-<ion-nav [root]="rootPage"></ion-nav>
+<ion-menu [content]="conteudo">
+    <ion-item id="cabecalho-menu" class="cabecalho-menu">
+            <div>
+               
+            </div>
+            
+        </ion-item>
+<ion-list>
+    <br/>
+    <button ion-item menuClose color="black" *ngFor="let pagina of paginas"
+    (click)="irParaPagina(pagina.componente)"
+    >
+        <ion-icon [name]="pagina.icon" item-left> </ion-icon>
+          {{pagina.titulo}}
+    </button>
+    </ion-list>
+</ion-menu>
+<ion-nav [root]="rootPage" #conteudo swipeBackEnabled="false"></ion-nav>

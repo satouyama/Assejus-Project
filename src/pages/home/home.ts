@@ -26,16 +26,19 @@ export class HomePage {
     var cpf = Usuario.nr_cpf;
      this._http.get<User[]>('http://homologaintranet.assejus.org.br/api/v1/usuario/validar-acesso/'+cpf+'/'+ senha).subscribe((res)=>{
         this.Data = res;
-         this.navCtrl.push(ReservaPage, {data : this.Data.dados_usuario});
+         this.navCtrl.setRoot(ReservaPage, {data : this.Data.dados_usuario});
         this.toastCtrl.create({
           message: 'Bem vindo ' + this.Data.dados_usuario.nm_completo,
-          duration: 3000,
+          duration: 2000,
           position: 'top'
         }).present();
        
      },(e)=>{
-       console.log(e);
-      
+      this.toastCtrl.create({
+        message: 'CPF ou Senha inválidos',
+        duration: 3000,
+        position: 'top'
+      }).present();
       })
   }
 
