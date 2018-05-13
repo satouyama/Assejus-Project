@@ -2,7 +2,14 @@
   "name": "AssejusApp",
   "app_id": "",
   "type": "ionic-angular",
+  "proxies": [
+    {
+      "path":"/validar-acesso",
+      "proxyUrl": "http://homologaintranet.assejus.org.br/api/v1/usuario/validar-acesso"
+    }
+  ],
   "integrations": {
     "cordova": {}
   }
+ 
 }
