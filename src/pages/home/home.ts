@@ -21,9 +21,11 @@ export class HomePage {
   ) {
        
   }
+
+  
   Logar(Usuario : User){
-    var senha = Md5.hashStr(Usuario.senha);
-    var cpf = Usuario.nr_cpf;
+    var senha = Md5.hashStr('12345678');
+    var cpf = '07937776153';
      this._http.get<User[]>('http://homologaintranet.assejus.org.br/api/v1/usuario/validar-acesso/'+cpf+'/'+ senha).subscribe((res)=>{
         this.Data = res;
          this.navCtrl.setRoot(ReservaPage, {data : this.Data.dados_usuario});

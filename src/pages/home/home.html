@@ -1,20 +1,48 @@
 
-<ion-content padding>
-  <div id="conteudo">
-  <img src="./assets/images/image.png">
+<ion-content class="profiles-bg">
+    <div class="auth-content">
+        <div padding-horizontal text-center>
+            <div class="logo">
+                <img src="assets/imgs/logo-principal.png">
+            </div>
+            <h2 *ngIf="false"  ion-text class="text-white" no-margin>
+                varzea<strong>Brasil</strong>
+            </h2>
+        </div>
 
-<div id="box">
-<ion-label>CPF</ion-label>
-<ion-input [(ngModel)]="Usuario.nr_cpf" type="number"></ion-input>
+    <div id="loginForm">
+        <div class="list-form">
+            <ion-item>
+                <ion-label floating>
+                    
+                    CPF
+                </ion-label>
+                <ion-input [(ngModel)]="Usuario.nr_cpf" type="number" ></ion-input>
+            </ion-item>
+            
 
+            <ion-item>
+                <ion-label floating>
+                    <ion-icon name="lock" item-start class="text-white"></ion-icon>
+                    Password
+                </ion-label>
+                <ion-input [(ngModel)]="Usuario.senha" type="password"></ion-input>
+            </ion-item>
+            
+          </div>
 
-<ion-label>Senha</ion-label>
-<ion-input [(ngModel)]="Usuario.senha" type="password"></ion-input>
-</div>
+        
 
-<div class="center">
-<button ion-button (click)="Logar(Usuario)" color="black">Logar</button>
-</div>
-</div>
+        <div>
+            <button ion-button icon-start block outline color="light" (click)="Logar()" >
+                <ion-icon name="log-in"></ion-icon>
+                ACESSAR
+            </button>
+
+           
+
+        </div>
+    </div>
+    </div>
 </ion-content>
 

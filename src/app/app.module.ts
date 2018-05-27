@@ -8,7 +8,7 @@ import {HttpClientModule} from '@angular/common/http'
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ReservaPage } from '../pages/reserva/reserva';
-
+import { IonicImageViewerModule } from 'ionic-img-viewer';
 
 @NgModule({
   declarations: [
@@ -18,9 +18,12 @@ import { ReservaPage } from '../pages/reserva/reserva';
     
   ],
   imports: [
+   
+    
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    HttpClientModule
+    HttpClientModule,
+    IonicImageViewerModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

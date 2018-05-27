@@ -1,45 +1,48 @@
-<!--
-  Generated template for the ReservaPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
-
-  <ion-navbar>
-    <button ion-button menuToggle>
-       <ion-icon name="menu">
+    <ion-navbar>
+      <button ion-button menuToggle>
+        <ion-icon name="menu" color="dark"></ion-icon>
+      </button>
+      <ion-title>
+        <span ion-text color="primary" class="fw300">Assejus</span><span ion-text color="dark" class="fw700"></span>
+      </ion-title>
+      <ion-buttons end>
+        <button ion-button (click)="presentNotifications($event)">
+          <ion-icon name="notifications" color="primary"></ion-icon>
+        </button>
+        <button ion-button (click)="openSettingsPage()">
+          <ion-icon name="cog" color="primary"></ion-icon>
+        </button>
+      </ion-buttons> 
+    </ion-navbar>
+  </ion-header>
+  
+  <ion-content>
+  
+    <ion-grid no-padding>
+      <ion-row>
+        <ion-col col-12 no-padding>
+          <button ion-button full large no-margin color="secundary" (click)="openPropertyListPage({proptype: 'sale', from: 'home'})">Bem vindo <br/> {{data.nm_usuario}} </button>
+        </ion-col>
        
-       </ion-icon>
-    </button>
-   <ion-title>Minhas Reservas</ion-title>
- </ion-navbar>
-
-</ion-header>
-
-
-<ion-content padding>
-  <ion-card>
-    <ion-card-header>
-      Informações para teste de login
-    </ion-card-header>
+      </ion-row>
+    </ion-grid>
+  
+    <ion-searchbar  [(ngModel)]="searchKey" (ionInput)="onInput($event)" (ionCancel)="onCancel($event)"></ion-searchbar>
+  
+    <h3 ion-text text-center color="dark" class="main-styled-border">Churrasqueira Nº 14</h3>
   
     <ion-list>
-      <button ion-item>
-        <ion-icon name="people" item-start></ion-icon>
-         {{data.nm_completo}}
+      <button ion-item *ngFor="let property of properties" (click)="openPropertyDetail(property)">
+        <ion-thumbnail item-start>
+            <img src="{{property.thumbnail}}">
+        </ion-thumbnail>
+       
+        <button ion-button round item-end color="light">
+          <ion-icon name="arrow-round-forward" color="primary"></ion-icon>
+        </button>
       </button>
-  
-      <button ion-item>
-        <ion-icon name="mail" item-start></ion-icon>
-          {{data.em_email}}
-      </button>
-  
-      <button ion-item>
-        <ion-icon name="create" item-start></ion-icon>
-        Data de Registro : {{data.dt_registro}}
-      </button>
-  
     </ion-list>
-  </ion-card>
-</ion-content>
+   <h3 ion-text text-center color="dark" class="main-styled-border">Quadra de Basquete e Volei</h3>
+  
+  </ion-content>
