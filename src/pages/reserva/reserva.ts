@@ -43,7 +43,7 @@ export class ReservaPage {
         this.reservas = this.dados.data;
         loading.dismiss();
       },
-      (error : HttpErrorResponse) => {
+      (error) => {
           loading.dismiss();
 
         this._alertCtrl.create({
