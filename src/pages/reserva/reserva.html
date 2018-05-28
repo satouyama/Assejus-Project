@@ -7,10 +7,10 @@
         <span ion-text color="primary" class="fw300">Assejus</span><span ion-text color="dark" class="fw700"></span>
       </ion-title>
       <ion-buttons end>
-        <button ion-button (click)="presentNotifications($event)">
+        <button ion-button>
           <ion-icon name="notifications" color="primary"></ion-icon>
         </button>
-        <button ion-button (click)="openSettingsPage()">
+        <button ion-button >
           <ion-icon name="cog" color="primary"></ion-icon>
         </button>
       </ion-buttons> 
@@ -22,7 +22,7 @@
     <ion-grid no-padding>
       <ion-row>
         <ion-col col-12 no-padding>
-          <button ion-button full large no-margin color="secundary" (click)="openPropertyListPage({proptype: 'sale', from: 'home'})">Bem vindo <br/> {{data.nm_usuario}} </button>
+          <button ion-button full large no-margin color="secundary">Bem vindo <br/> {{data.nm_usuario}} </button>
         </ion-col>
        
       </ion-row>
@@ -30,19 +30,13 @@
   
     <ion-searchbar  [(ngModel)]="searchKey" (ionInput)="onInput($event)" (ionCancel)="onCancel($event)"></ion-searchbar>
   
-    <h3 ion-text text-center color="dark" class="main-styled-border">Churrasqueira Nº 14</h3>
+    
   
-    <ion-list>
-      <button ion-item *ngFor="let property of properties" (click)="openPropertyDetail(property)">
-        <ion-thumbnail item-start>
-            <img src="{{property.thumbnail}}">
-        </ion-thumbnail>
+    <ion-list *ngFor="let reserva of reservas">
+        
+        <h3 ion-text text-center color="dark" class="main-styled-border" (click)="DescricaoReserva(reserva)">{{reserva.ds_tipo_item}}</h3>
        
-        <button ion-button round item-end color="light">
-          <ion-icon name="arrow-round-forward" color="primary"></ion-icon>
-        </button>
-      </button>
     </ion-list>
-   <h3 ion-text text-center color="dark" class="main-styled-border">Quadra de Basquete e Volei</h3>
+ 
   
   </ion-content>

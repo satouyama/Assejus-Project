@@ -1,0 +1,65 @@
+<ion-header>
+    <ion-navbar>
+      <button ion-button menuToggle>
+        <ion-icon name="menu" color="dark"></ion-icon>
+      </button>
+      <ion-title>
+        <span ion-text color="primary">Descrição de reserva</span>
+      </ion-title>
+      <ion-buttons end>
+        <button ion-button >
+    
+        </button>
+      </ion-buttons>
+    </ion-navbar>
+  
+  
+  </ion-header>
+  
+  <ion-content class="lightest-bg">
+  
+  
+  
+      <div >
+          <ion-card margin-bottom>
+            <div class="card-img-wrap">
+           
+            
+              <span ion-text class="card-img-status sale fw300 text-white">
+                R${{dados.vl_reserva}}
+              </span>
+            </div>
+            <ion-card-content>
+              <ion-card-title ion-text color="dark" tappable (click)="openPropertyDetail(property)" no-margin no-padding>
+                  {{dados.ds_tipo_item}}
+              </ion-card-title>
+              <p ion-text color="primary" no-margin>
+                  
+              </p>
+  
+              <hr margin-vertical>
+  
+              <p ion-text color="dark">
+                <ion-icon name="calendar"></ion-icon> Data Limite de pagamento : {{dados.dt_limite_pagamento | date:'yyyy-MM-dd'}}<br/>
+                <ion-icon name="key"></ion-icon> Chave da reserva :  {{dados.nr_chave_reserva}}<br/>
+                <ion-icon name="person"></ion-icon> Nome Usuario :  {{dados.nm_completo}} <br/>
+                <ion-icon name="warning"></ion-icon> Situação da reserva :  {{dados.nm_situacao_reserva}}
+              </p>
+            </ion-card-content>
+          </ion-card>
+      </div>
+  
+      
+  
+  </ion-content>
+
+  <ion-footer padding>
+      <ion-segment [(ngModel)]="viewMode">
+          <ion-segment-button value="list">
+              <ion-icon name="list"></ion-icon>
+          </ion-segment-button>
+          <ion-segment-button>
+              <ion-icon name="map"></ion-icon>
+          </ion-segment-button>
+      </ion-segment>
+  </ion-footer>

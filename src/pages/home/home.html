@@ -1,15 +1,14 @@
 
 <ion-content class="profiles-bg">
+        <form [formGroup]="LogarForm" (ngSubmit)="Logar(Usuario)">
     <div class="auth-content">
         <div padding-horizontal text-center>
             <div class="logo">
                 <img src="assets/imgs/logo-principal.png">
             </div>
-            <h2 *ngIf="false"  ion-text class="text-white" no-margin>
-                varzea<strong>Brasil</strong>
-            </h2>
+            
         </div>
-
+    
     <div id="loginForm">
         <div class="list-form">
             <ion-item>
@@ -17,7 +16,7 @@
                     
                     CPF
                 </ion-label>
-                <ion-input [(ngModel)]="Usuario.nr_cpf" type="number" ></ion-input>
+                <ion-input [(ngModel)]="Usuario.nr_cpf" type="number" formControlName="cpf"></ion-input>
             </ion-item>
             
 
@@ -26,7 +25,7 @@
                     <ion-icon name="lock" item-start class="text-white"></ion-icon>
                     Password
                 </ion-label>
-                <ion-input [(ngModel)]="Usuario.senha" type="password"></ion-input>
+                <ion-input [(ngModel)]="Usuario.senha" type="password" formControlName="senha"></ion-input>
             </ion-item>
             
           </div>
@@ -34,15 +33,14 @@
         
 
         <div>
-            <button ion-button icon-start block outline color="light" (click)="Logar()" >
+            <button ion-button icon-start block outline type="submit" color="light" [disabled]="LogarForm.invalid">
                 <ion-icon name="log-in"></ion-icon>
                 ACESSAR
             </button>
-
-           
-
         </div>
     </div>
     </div>
+    </form>
+
 </ion-content>
 

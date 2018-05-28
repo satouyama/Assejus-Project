@@ -16,5 +16,15 @@ page-reserva {
             box-shadow: none;
             height: 12rem;
         }
-   
+        .btn{
+            padding: 9px 8px;
+            width: 120px;
+            position: absolute;
+            right: 0;
+            top: 8px;
+            border-radius: 3px;
+            color: #fff;
+            text-align: center;
+        }
+        
 }
