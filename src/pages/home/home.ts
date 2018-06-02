@@ -34,19 +34,19 @@ export class HomePage {
 
    
   Logar(Usuario : User){
-    console.log(Usuario.senha)
+  
     var senha = Md5.hashStr(Usuario.senha);
     var cpf = Usuario.nr_cpf;
-    console.log(cpf);
+  
    
      this._http.get<User[]>('http://homologaintranet.assejus.org.br/api/v1/usuario/validar-acesso/'+cpf+'/'+ senha).subscribe((res)=>{
 
         this.Data = res;
-         this.session.createSession(this.Data.dados_usuario.id_usuario,cpf,this.Data.dados_usuario.nm_usuario)
+         this.session.createSession(this.Data.data.id_usuario,cpf,this.Data.data.nm_usuario)
          .then((res)=>{
-          this.navCtrl.setRoot(ReservaPage, {data : this.Data.dados_usuario});
+          this.navCtrl.setRoot(ReservaPage, {data : this.Data.data});
           this.toastCtrl.create({
-            message: 'Bem vindo ' + this.Data.dados_usuario.nm_completo,
+            message: 'Bem vindo ' + this.Data.data.nm_completo,
             duration: 2000,
             position: 'top'
           }).present();

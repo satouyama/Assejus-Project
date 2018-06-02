@@ -5,6 +5,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { HomePage } from '../pages/home/home';
 import { SessionService } from '../providers/session/session.service';
 import { Storage } from '@ionic/storage';
+import { ReservaPage } from '../pages/reserva/reserva';
 @Component({
   selector : 'myapp',
   templateUrl: 'app.html'
@@ -12,6 +13,7 @@ import { Storage } from '@ionic/storage';
 })
 
 export class MyApp {
+  
  
   rootPage:any = HomePage;
   @ViewChild(Nav)
@@ -20,8 +22,11 @@ export class MyApp {
     {titulo: 'Sair', componente: HomePage, icon:'exit'}
   ]
    
- 
+   public user;
+   public nome;
   
+       
+
   constructor(platform: Platform, statusBar: StatusBar,
      splashScreen: SplashScreen, 
     public storage : Storage,
@@ -33,9 +38,24 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       statusBar.styleDefault();
       splashScreen.hide();
+   
+    });
+    this.storage.get('data').then((val) => {
+      this.user = val;
+      this.nome = this.user.nome;
+       console.log(this.user);
+      if(this.user ==! null || this.user.nome == null){
+         this.rootPage = HomePage;
+      } else {
+        this.rootPage = ReservaPage;
+       
+      }
+    }). catch((e)=>{
+      this.rootPage = HomePage;
       
     });
   }
+            
 
   irParaPagina(componente){
      if(componente = HomePage) {

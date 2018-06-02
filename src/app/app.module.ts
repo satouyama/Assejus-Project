@@ -11,7 +11,8 @@ import { HomePage } from '../pages/home/home';
 import { ReservaPage } from '../pages/reserva/reserva';
 import { SessionService} from '../providers/session/session.service';
 import { DescricaoReservaPage } from '../pages/descricao-reserva/descricao-reserva';
-
+ import {LaunchNavigator} from '@ionic-native/launch-navigator';
+ import { Geolocation } from '@ionic-native/geolocation';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,7 @@ import { DescricaoReservaPage } from '../pages/descricao-reserva/descricao-reser
     BrowserModule,
     IonicStorageModule.forRoot(),
     IonicModule.forRoot(MyApp),
-    HttpClientModule,
+    HttpClientModule
    
   ],
   bootstrap: [IonicApp],
@@ -36,10 +37,13 @@ import { DescricaoReservaPage } from '../pages/descricao-reserva/descricao-reser
     DescricaoReservaPage
   ],
   providers: [
+    Geolocation,
+    LaunchNavigator,
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    SessionService
+    SessionService,
+   
   ]
 })
 export class AppModule {}

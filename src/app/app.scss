@@ -300,7 +300,10 @@
           background-color: rgba(44, 167, 148, .4);
       }
   }
-  
+  .p{
+    font-weight: bold !important;
+    font-size: 18px !important;
+  }
   // Swiper
   .swiper-pagination-bullet-active {
       background: color($colors, dark);

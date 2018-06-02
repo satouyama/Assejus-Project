@@ -15,13 +15,13 @@ export class SessionService {
     
   }
   
-  createSession(id : number ,cpf :number,nome : string) : Promise<User>{
-     let data = {
-       "id" : id,
-       "cpf": cpf,
-       'nome' : nome
-     } 
-    return this.storage.set('data', data);
+  createSession(id : number ,cpf :string,nome : string){
+     let usuarioStorage = {
+      id : id, 
+      nr_cpf : cpf,
+      nome : nome
+     }
+    return this.storage.set('data', usuarioStorage);
   }
 
   clearAll(){

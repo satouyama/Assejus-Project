@@ -22,19 +22,19 @@
     <ion-grid no-padding>
       <ion-row>
         <ion-col col-12 no-padding>
-          <button ion-button full large no-margin color="secundary">Bem vindo <br/> {{data.nm_usuario}} </button>
+          <button ion-button full large no-margin color="secundary">Bem vindo <br/> {{nome}} </button>
         </ion-col>
        
       </ion-row>
     </ion-grid>
   
-    <ion-searchbar  [(ngModel)]="searchKey" (ionInput)="onInput($event)" (ionCancel)="onCancel($event)"></ion-searchbar>
+    <ion-searchbar (search)="onSearch($event)" (ionInput)="filterItens($event)"></ion-searchbar>
   
     
   
     <ion-list *ngFor="let reserva of reservas">
         
-        <h3 ion-text text-center color="dark" class="main-styled-border" (click)="DescricaoReserva(reserva)">{{reserva.ds_tipo_item}}</h3>
+        <h3 ion-text text-center color="dark" class="main-styled-border" (click)="DescricaoReserva(reserva)">{{reserva.nm_item_locavel}}</h3>
        
     </ion-list>
  
