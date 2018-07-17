@@ -6,6 +6,7 @@ import { HomePage } from '../pages/home/home';
 import { SessionService } from '../providers/session/session.service';
 import { Storage } from '@ionic/storage';
 import { ReservaPage } from '../pages/reserva/reserva';
+import { ListItemPage } from '../pages/list-item/list-item';
 @Component({
   selector : 'myapp',
   templateUrl: 'app.html'
@@ -19,7 +20,10 @@ export class MyApp {
   @ViewChild(Nav)
   public Nav : Nav;
   public paginas = [
-    {titulo: 'Sair', componente: HomePage, icon:'exit'}
+    {titulo : 'Home', componente : ReservaPage, icon : 'home'}, 
+    {titulo : 'Nova Reserva', componente : ListItemPage, icon : 'add'},
+    {titulo: 'Sair', componente: HomePage, icon:'exit'},
+   
   ]
    
    public user;
@@ -58,7 +62,7 @@ export class MyApp {
             
 
   irParaPagina(componente){
-     if(componente = HomePage) {
+     if(componente == HomePage) {
        console.log("o usuario saiu");
        this.session.clearAll()
        .then((res)=>{

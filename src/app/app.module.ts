@@ -13,13 +13,17 @@ import { SessionService} from '../providers/session/session.service';
 import { DescricaoReservaPage } from '../pages/descricao-reserva/descricao-reserva';
  import {LaunchNavigator} from '@ionic-native/launch-navigator';
  import { Geolocation } from '@ionic-native/geolocation';
+import { NovaReservaPage } from '../pages/nova-reserva/nova-reserva';
+import { ListItemPage } from '../pages/list-item/list-item';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     ReservaPage,
-    DescricaoReservaPage
+    DescricaoReservaPage,
+    NovaReservaPage,
+    ListItemPage
     
   ],
   imports: [
@@ -34,7 +38,9 @@ import { DescricaoReservaPage } from '../pages/descricao-reserva/descricao-reser
     MyApp,
     HomePage,
     ReservaPage,
-    DescricaoReservaPage
+    DescricaoReservaPage,
+    NovaReservaPage,
+    ListItemPage
   ],
   providers: [
     Geolocation,

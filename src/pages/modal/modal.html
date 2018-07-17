@@ -1,0 +1,35 @@
+<ion-header>
+
+    <ion-toolbar>
+  
+        <ion-title>
+            <span ion-text color="primary">Itens Disponíveis</span>
+        </ion-title>
+  
+      <ion-buttons start>
+          <button ion-button (click)="dismiss()">
+              <span ion-text style="color:rgb(17, 211, 245)">Cancel</span>
+            <ion-icon name="md-close" showWhen="android, windows"></ion-icon>
+          </button>
+        </ion-buttons>
+  
+    </ion-toolbar>
+  
+  </ion-header>
+  
+  <ion-content padding style="padding:10px">
+  
+    <ion-list id="thead">
+      <ion-item class="title title1">Itens Disponíveis</ion-item>
+      <ion-item class="title title3">Situação</ion-item>
+  
+    </ion-list>
+  
+    <ion-list class="tupla" lines>
+  
+      <ion-item *ngFor="let churrasqueiras of churrasqueiras">
+          <h2 ion-text color="dark" class="card-title">{{churrasqueiras.nm_item_locavel}}</h2>
+        <p class="btn Reservar" (click)="novaReserva(churrasqueiras)">Reservar</p>
+      </ion-item>
+    </ion-list>
+  </ion-content>

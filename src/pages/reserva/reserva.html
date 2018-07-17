@@ -34,9 +34,13 @@
   
     <ion-list *ngFor="let reserva of reservas">
         
-        <h3 ion-text text-center color="dark" class="main-styled-border" (click)="DescricaoReserva(reserva)">{{reserva.nm_item_locavel}}</h3>
+        <h3 ion-text text-center color="dark" class="main-styled-border" (click)="DescricaoReserva(reserva)">{{reserva?.nm_item_locavel}}</h3>
        
     </ion-list>
+    <ion-fab right bottom>
+        <button ion-fab color="red" (click)="novaReserva()"><ion-icon name="add"></ion-icon></button>
+        
+      </ion-fab>
  
   
   </ion-content>

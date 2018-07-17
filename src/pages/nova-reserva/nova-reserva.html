@@ -1,0 +1,109 @@
+<!-- -->
+<ion-header>
+
+    <ion-navbar color="primary">
+      <ion-title>Nova Reserva</ion-title>
+    </ion-navbar>
+  
+  </ion-header>
+  
+  
+  <ion-content padding class="checkout-car common-bg">
+    <ion-grid fixed>
+      <ion-row>
+        <ion-col col-12 margin-bottom>
+          <!--trip information-->
+          <div class="checkout-info car-info card round">
+            <div class="car-image border-bottom"></div>
+            <ion-grid padding>
+              <ion-row>
+                <ion-col width-66>
+                  <h5 ion-text color="dark" class="bold">{{itens.nm_item_locavel}}</h5>
+                  <div>
+                    <h6 ion-text color="primary">{{itens.ds_item_locavel}}</h6>
+                  </div>
+                  <div margin-top>
+                    <span ion-text>{{itens.hr_inicio_disponibilidade}}</span>
+                    <br/>
+                    <span ion-text> {{itens.hr_fim_disponibilidade}}</span>
+                  </div>
+                  <div margin-top>
+  
+                  </div>
+                </ion-col>
+                <ion-col col-4>
+                  <span ion-text color="dark">Valor da Reserva</span>
+                  <h5 no-margin>R$ 954,00</h5>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </div>
+  
+            <!--more info-->
+          <h5>Detalhe do usuario</h5>
+          <div class="card round" margin-top>
+  
+            <ion-list no-margin>
+              <ion-item class="primary-bg">
+                <h2 ion-text class="text-white bold">Alysson Vicuña de Oliveira</h2>
+                <p ion-text class="text-light">Usuario</p>
+              </ion-item>
+            </ion-list>
+  
+          </div>
+  
+          <!--payment info-->
+         
+  
+  
+          <div class="card round" margin-top margin-bottom>
+  
+            <div [ngSwitch]="paymethods">
+              <ion-grid padding>
+               
+          
+                <ion-row>
+                  <ion-col col-4>
+                    <ion-item no-padding>
+                      <ion-select placeholder="Mês" class="max-width full-width">
+                        <ion-option value="01">01</ion-option>
+                        <ion-option value="02">02</ion-option>
+                        <ion-option value="03">03</ion-option>
+                        <ion-option value="04">04</ion-option>
+                        <ion-option value="05">05</ion-option>
+                        <ion-option value="06">06</ion-option>
+                        <ion-option value="07">07</ion-option>
+                        <ion-option value="08">08</ion-option>
+                        <ion-option value="09">09</ion-option>
+                        <ion-option value="10">10</ion-option>
+                        <ion-option value="11">11</ion-option>
+                        <ion-option value="12">12</ion-option>
+                      </ion-select>
+                    </ion-item>
+                  </ion-col>
+                  <ion-col col-4>
+                    <ion-item no-padding>
+                      <ion-select placeholder="Ano" class="max-width full-width">
+                        <ion-option value="19">19</ion-option>
+                        <ion-option value="20">20</ion-option>
+                        <ion-option value="21">21</ion-option>
+                        <ion-option value="22">22</ion-option>
+                        <ion-option value="23">23</ion-option>
+                        <ion-option value="24">24</ion-option>
+                      </ion-select>
+                    </ion-item>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+  
+            </div>
+  
+          </div>
+  
+          <!--submit button-->
+          <button ion-button class="round" color="primary" margin-top full tappable (click)="send()">Pesquisar</button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  
+  </ion-content>

@@ -38,7 +38,7 @@ export class DescricaoReservaPage {
     this.geolocation.getCurrentPosition().then((resp) => {
       this.lat = resp.coords.latitude
       this.long = resp.coords.longitude
-      
+
      }).catch((error) => {
        console.log('Error getting location', error);
      });
@@ -58,6 +58,7 @@ export class DescricaoReservaPage {
    
     const options: LaunchNavigatorOptions = {
       start: [this.lat, this.long],
+      app: this.launchNavigator.APP.GOOGLE_MAPS,
       transportMode: this.launchNavigator.TRANSPORT_MODE.WALKING,
       appSelection: {
           dialogHeaderText: 'some dialog header',

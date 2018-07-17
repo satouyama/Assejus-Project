@@ -5,6 +5,8 @@ import { DescricaoReservaPage } from '../descricao-reserva/descricao-reserva';
 import {Storage} from '@ionic/storage';
 import { User } from '../../model/usuario';
 import { HomePage } from '../home/home';
+import { NovaReservaPage } from '../nova-reserva/nova-reserva';
+import { ListItemPage } from '../list-item/list-item';
 /**
  * Generated class for the ReservaPage page.
  *
@@ -20,12 +22,12 @@ import { HomePage } from '../home/home';
 export class ReservaPage {
   public nome;
   user;
-  reservas ;
+  public reservas 
   public dados;
   public cpf
-  public queryText : string; 
+ 
   
-  
+  itens : any;
   
   
   constructor(public navCtrl: NavController, public navParams: NavParams, 
@@ -37,20 +39,23 @@ export class ReservaPage {
   ) {
    this.menuCtrl.enable(true, 'myMenu'); 
    console.log(this.user);
-   
+  
   }
+
+  
   
   ionViewDidLoad() {
     this.storage.get('data').then((val) => {
       this.user = val;
-      console.log(val);
+      
       this.nome = this.user.nome;
       this.cpf = this.user.nr_cpf;
-      console.log(this.cpf);
+     
       this._http.get<User>('http://homologaintranet.assejus.org.br/api/v1/reserva/buscar-por-cpf/' + this.cpf).subscribe(
         (dados) => {
           this.dados = dados;
-          this.reservas = this.dados.data;
+         this.reservas = this.dados.data
+          
           loading.dismiss();
         },
         (error) => {
@@ -66,7 +71,7 @@ export class ReservaPage {
         }
       );
  }).catch((e)=>{
-    console.log('caiu no erro');
+    console.log(e);
     loading.dismiss();
     
      
@@ -87,17 +92,11 @@ export class ReservaPage {
   }
  
    filterItens(event : any){
-    let val = event.target.value;
-    let itens = [];
-    console.log(this.reservas);
-    for(let reservinhas of this.reservas){
-     
-      itens = reservinhas.nm_item_locavel;
-      console.log(itens);
-    }
-
+ 
   
    }
-
+   novaReserva(){
+     this.navCtrl.push(ListItemPage);
+   }
    
 }
